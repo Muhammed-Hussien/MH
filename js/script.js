@@ -35,3 +35,40 @@ const observer = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll(
 	'.home-text, .about, .services, .portfolio, .contact'
 ).forEach(el => observer.observe(el));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.querySelectorAll('.gallery').forEach(gallery => {
+
+	let images = gallery.querySelectorAll('img');
+	let index = 0;
+
+	const showImage = (i) => {
+		images.forEach(img => img.classList.remove('active'));
+		images[i].classList.add('active');
+	};
+
+	gallery.querySelector('.next').onclick = () => {
+		index = (index + 1) % images.length;
+		showImage(index);
+	};
+
+	gallery.querySelector('.prev').onclick = () => {
+		index = (index - 1 + images.length) % images.length;
+		showImage(index);
+	};
+
+});
+
+
