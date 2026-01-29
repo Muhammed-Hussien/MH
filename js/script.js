@@ -1,7 +1,7 @@
 const header = document.querySelector("header");
 
-window.addEventListener ("scroll", function() {
-	header.classList.toggle ("sticky", window.scrollY >0);
+window.addEventListener("scroll", () => {
+	header.classList.toggle("sticky", window.scrollY > 0);
 });
 
 let menu = document.querySelector('#menu-icon');
@@ -12,17 +12,26 @@ menu.onclick = () => {
 	navbar.classList.toggle('active');
 };
 
-window.onscroll = () => {
+window.addEventListener("scroll", () => {
 	menu.classList.remove('bx-x');
 	navbar.classList.remove('active');
-};
+});
 
-const sr = ScrollReveal ({
-	distance: '25px',
-	duration: 2500,
-	reset: true
-})
+// =======================
+// Reveal on Scroll (Stable)
+// =======================
 
-sr.reveal('.home-text',{delay:190, origin:'bottom'})
+const observer = new IntersectionObserver((entries, observer) => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			entry.target.classList.add('show');
+			observer.unobserve(entry.target); // 👈 يظهر مرة واحدة فقط
+		}
+	});
+}, {
+	threshold: 0.2
+});
 
-sr.reveal('.about,.services,.portfolio,.contact',{delay:200, origin:'bottom'})
+document.querySelectorAll(
+	'.home-text, .about, .services, .portfolio, .contact'
+).forEach(el => observer.observe(el));
