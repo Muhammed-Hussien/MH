@@ -447,5 +447,59 @@ form textarea{
 	  --h2-font: 2.7rem;
 	}
 
+
+
+
+
+
+
+
+
+
+	.gallery{
+	position: relative;
+	overflow: hidden;
+	border-radius: 0.5rem;
 }
+
+.gallery img{
+	width: 100%;
+	display: none;
+}
+
+.gallery img.active{
+	display: block;
+}
+
+.gallery button{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(0,0,0,0.5);
+	color: #fff;
+	border: none;
+	font-size: 20px;
+	padding: 6px 10px;
+	cursor: pointer;
+	border-radius: 4px;
+}
+
+.gallery .prev{
+	left: 10px;
+}
+
+.gallery .next{
+	right: 10px;
+}
+
+
+
+
+
+
+
+	
+
+}
+
 
