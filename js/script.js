@@ -43,9 +43,6 @@ document.querySelectorAll(
 
 
 
-
-
-
 document.querySelectorAll('.gallery').forEach(gallery => {
 
 	let images = gallery.querySelectorAll('img');
@@ -56,24 +53,32 @@ document.querySelectorAll('.gallery').forEach(gallery => {
 		images[i].classList.add('active');
 	};
 
-	// افتراض أول صورة ظاهرة
+	// اعرض أول صورة عند البداية
 	showImage(index);
 
-	const nextBtn = gallery.querySelector('.next');
-	const prevBtn = gallery.querySelector('.prev');
+	// إنشاء أزرار Prev و Next ديناميكيًا
+	const prevBtn = document.createElement('button');
+	prevBtn.className = 'prev';
+	prevBtn.innerHTML = '&#10094;'; // ←
 
-	if(nextBtn){
-		nextBtn.addEventListener('click', () => {
-			index = (index + 1) % images.length;
-			showImage(index);
-		});
-	}
+	const nextBtn = document.createElement('button');
+	nextBtn.className = 'next';
+	nextBtn.innerHTML = '&#10095;'; // →
 
-	if(prevBtn){
-		prevBtn.addEventListener('click', () => {
-			index = (index - 1 + images.length) % images.length;
-			showImage(index);
-		});
-	}
+	gallery.appendChild(prevBtn);
+	gallery.appendChild(nextBtn);
+
+	// حدث النقر لكل زر
+	prevBtn.addEventListener('click', () => {
+		index = (index - 1 + images.length) % images.length;
+		showImage(index);
+	});
+
+	nextBtn.addEventListener('click', () => {
+		index = (index + 1) % images.length;
+		showImage(index);
+	});
 
 });
+
+
