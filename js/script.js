@@ -46,9 +46,6 @@ document.querySelectorAll(
 
 
 
-
-
-
 document.querySelectorAll('.gallery').forEach(gallery => {
 
 	let images = gallery.querySelectorAll('img');
@@ -59,16 +56,24 @@ document.querySelectorAll('.gallery').forEach(gallery => {
 		images[i].classList.add('active');
 	};
 
-	gallery.querySelector('.next').onclick = () => {
-		index = (index + 1) % images.length;
-		showImage(index);
-	};
+	// افتراض أول صورة ظاهرة
+	showImage(index);
 
-	gallery.querySelector('.prev').onclick = () => {
-		index = (index - 1 + images.length) % images.length;
-		showImage(index);
-	};
+	const nextBtn = gallery.querySelector('.next');
+	const prevBtn = gallery.querySelector('.prev');
+
+	if(nextBtn){
+		nextBtn.addEventListener('click', () => {
+			index = (index + 1) % images.length;
+			showImage(index);
+		});
+	}
+
+	if(prevBtn){
+		prevBtn.addEventListener('click', () => {
+			index = (index - 1 + images.length) % images.length;
+			showImage(index);
+		});
+	}
 
 });
-
-
