@@ -375,6 +375,35 @@ form textarea{
 	border-radius: 0.5rem;
 }
 
+
+
+
+
+
+
+.home-text,
+.about,
+.services,
+.portfolio,
+.contact {
+	opacity: 0;
+	transform: translateY(25px);
+	transition: opacity 2.5s ease, transform 2.5s ease;
+}
+
+.show {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+
 @media (max-width: 1325px){
 	header{
 		padding: 16px 3%;
@@ -437,4 +466,5 @@ form textarea{
 		--h1-font: 3.7rem;
 	  --h2-font: 2.7rem;
 	}
+
 }
