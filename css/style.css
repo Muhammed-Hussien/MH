@@ -482,16 +482,24 @@ form textarea{
 	border-radius: 0.5rem;
 }
 
+	.gallery{
+	aspect-ratio: 16 / 9;
+	height: auto;
+}
+
+
 /* images */
 .gallery img{
 	position: absolute;
 	inset: 0;
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	object-fit: contain;   /* 👈 الحل */
+	background: #e0e0e0;   /* نفس لون الكارت */
 	opacity: 0;
 	transition: opacity 0.4s ease;
 }
+
 
 .gallery img.active{
 	opacity: 1;
@@ -540,6 +548,7 @@ form textarea{
 	
 
 }
+
 
 
 
