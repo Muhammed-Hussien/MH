@@ -539,9 +539,63 @@ form textarea{
 }
 
 
+
+
+
+
+
+
+/* ===== Portfolio Slider Fix (Desktop) ===== */
+
+.row{
+	display: flex;
+	flex-direction: column;
+}
+
+.row .images{
+	position: relative;
+	width: 100%;
+	height: 230px;
+	overflow: hidden;
+	border-radius: 0.5rem;
+}
+
+.row .images img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: none;
+}
+
+.row .images img.active{
+	display: block;
+}
+
+.row .slider-btn{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(0,0,0,0.6);
+	color: #fff;
+	border: none;
+	padding: 6px 10px;
+	cursor: pointer;
+	border-radius: 4px;
+	z-index: 5;
+}
+
+.row .slider-btn.prev{ left: 10px; }
+.row .slider-btn.next{ right: 10px; }
+
+	
+
 	
 
 }
+
 
 
 
