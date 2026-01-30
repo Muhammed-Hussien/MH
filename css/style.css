@@ -454,34 +454,63 @@ form textarea{
 
 
 
+/* ===============================
+   PORTFOLIO IMAGE SLIDER (FIXED)
+   WORKS ON DESKTOP & MOBILE
+================================ */
 
+.portfolio-content{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 2rem;
+}
 
-	.gallery{
+.row{
+	background: #e0e0e0;
+	padding: 20px;
+	border-radius: 0.5rem;
+	display: flex;
+	flex-direction: column;
+}
+
+/* container */
+.gallery{
 	position: relative;
+	width: 100%;
+	height: 230px;
 	overflow: hidden;
 	border-radius: 0.5rem;
 }
 
+/* images */
 .gallery img{
+	position: absolute;
+	inset: 0;
 	width: 100%;
-	display: none;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0;
+	transition: opacity 0.4s ease;
 }
 
 .gallery img.active{
-	display: block;
+	opacity: 1;
+	z-index: 1;
 }
 
+/* buttons */
 .gallery button{
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	background: rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.6);
 	color: #fff;
 	border: none;
-	font-size: 20px;
+	font-size: 18px;
 	padding: 6px 10px;
 	cursor: pointer;
 	border-radius: 4px;
+	z-index: 5;
 }
 
 .gallery .prev{
@@ -492,109 +521,26 @@ form textarea{
 	right: 10px;
 }
 
-
-
-
-.portfolio-slider{
-	position: relative;
-	width: 100%;
-	height: 220px;
-	overflow: hidden;
-	border-radius: 0.5rem;
+/* titles under images */
+.row h3{
+	margin-top: 15px;
+	font-size: 22px;
+	font-weight: 700;
 }
 
-
-.portfolio-slider img{
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: none;
+/* ===============================
+   MOBILE FIX
+================================ */
+@media (max-width: 768px){
+	.gallery{
+		height: 200px;
+	}
 }
-.portfolio-slider img.active{
-	display: block;
-}
-
-
-
-
-	
-.slider-btn{
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	background: rgba(0,0,0,0.5);
-	color: #fff;
-	border: none;
-	padding: 6px 10px;
-	cursor: pointer;
-	border-radius: 4px;
-}
-
-.slider-btn.prev{
-	left: 10px;
-}
-
-.slider-btn.next{
-	right: 10px;
-}
-
-
-
-
-
-
-
-
-/* ===== Portfolio Slider Fix (Desktop) ===== */
-
-.row{
-	display: flex;
-	flex-direction: column;
-}
-
-.row .images{
-	position: relative;
-	width: 100%;
-	height: 230px;
-	overflow: hidden;
-	border-radius: 0.5rem;
-}
-
-.row .images img{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: none;
-}
-
-.row .images img.active{
-	display: block;
-}
-
-.row .slider-btn{
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	background: rgba(0,0,0,0.6);
-	color: #fff;
-	border: none;
-	padding: 6px 10px;
-	cursor: pointer;
-	border-radius: 4px;
-	z-index: 5;
-}
-
-.row .slider-btn.prev{ left: 10px; }
-.row .slider-btn.next{ right: 10px; }
-
-	
 
 	
 
 }
+
 
 
 
