@@ -610,13 +610,8 @@ form textarea{
 	.gallery .gallery-btn{ font-size: 16px; padding: 6px 8px; }
 }
 
-@media (max-width: 768px){
-	.gallery{
-		height: 230px;
-	}
 }
 
-}
 
 
 
